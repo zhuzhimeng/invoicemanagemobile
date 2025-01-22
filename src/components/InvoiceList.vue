@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="invoice-list">
     <invoice-filters
       v-model:timeFilter="timeFilter"
@@ -63,6 +63,75 @@ const invoiceGroups = ref([
 ])
 
 const noMoreData = ref(true)
+</script>
+
+<style scoped>
+.invoice-list {
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.no-more {
+  text-align: center;
+  padding: 16px;
+  color: #999;
+  font-size: 14px;
+}
+</style> -->
+
+
+
+
+<template>
+  <div class="invoice-list">
+    <!-- <invoice-filters
+      v-model:timeFilter="timeFilter"
+      v-model:statusFilter="statusFilter"
+      v-model:typeFilter="typeFilter"
+    /> -->
+    <invoice-group
+      v-for="group in invoiceGroups"
+      :key="group.month"
+      :group="group"
+    />
+    <div class="no-more" v-if="noMoreData">没有更多啦</div>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import InvoiceFilters from './InvoiceFilters.vue'
+import InvoiceGroup from './InvoiceGroup.vue'
+import { fetchInvoiceList } from '../stores/invoice.js'
+
+const timeFilter = ref(0)
+const statusFilter = ref(0)
+const typeFilter = ref(0)
+
+const invoiceGroups = ref([])
+const noMoreData = ref(true)
+
+onMounted(async () => {
+  await fetchInvoiceList()
+  // 这里需要根据实际情况对 invoiceData 进行分组处理，生成 invoiceGroups 的数据
+  // 示例代码：
+  const groupedData = {}
+  invoiceData.value.forEach(invoice => {
+    // const month = invoice.date.split('-')[0] + '年' + invoice.date.split('-')[1] + '月'
+    // if (!groupedData[month]) {
+    //   groupedData[month] = {
+    //     month,
+    //     count: 0,
+    //     invoices: []
+    //   }
+    // }
+    // groupedData[month].count++
+    groupedData[0].invoices.push(invoice)
+  })
+  // invoiceGroups.value = invoiceData.value
+  invoiceGroups.value = Object.values(groupedData);
+  console.log("invoiceGroups:"+invoiceGroups);
+})
 </script>
 
 <style scoped>

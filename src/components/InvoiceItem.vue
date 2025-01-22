@@ -1,15 +1,15 @@
 <template>
   <div class="invoice-item" @click="goToDetail">
     <div class="invoice-type">
-      <span class="type-icon">{{ invoice.typeIcon }}</span>
-      <span class="type-text">{{ invoice.serviceName }}</span>
+      <span class="type-icon">{{ invoice.xflx }}</span>
+      <span class="type-text">{{ invoice.fpdm }}</span>
     </div>
     <div class="invoice-details">
-      <div class="seller">销售方：{{ invoice.seller }}</div>
-      <div class="date">开票时间：{{ invoice.date }}</div>
+      <div class="seller">销售方：{{ invoice.xhfmc }}</div>
+      <div class="date">开票时间：{{ invoice.kprq }}</div>
     </div>
     <div class="invoice-amount">
-      <span class="amount">¥{{ invoice.amount }}</span>
+      <span class="amount">¥{{ invoice.hjje }}</span>
       <div class="download-btn" @click.stop="handleDownload">
         <van-icon name="down" />
       </div>
