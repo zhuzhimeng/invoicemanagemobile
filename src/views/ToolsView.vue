@@ -4,8 +4,8 @@ const tools = [
   { icon: 'photograph', text: '本地相册', color: '#1989fa' },
   { icon: 'wechat', text: '微信卡包获取', color: '#ff976a' },
   { icon: 'alipay', text: '支付宝卡包获取', color: '#7232dd' },
-  { icon: 'link-o', text: '发票连接', color: '#ee0a24' },
-  { icon: 'guide-o', text: '使用教程', color: '#2196f3' }
+  // { icon: 'link-o', text: '发票连接', color: '#ee0a24' },
+  // { icon: 'guide-o', text: '使用教程', color: '#2196f3' }
 ]
 </script>
 

@@ -4,7 +4,7 @@ export const invoiceData = ref([
   {
     id: 1,
     type: '增值税电子普通发票',
-    seller: '武汉京东世纪贸易有限公司',
+    seller: '清澜出行科技有限公司',
     buyer: '武汉数元科技有限公司',
     date: '2023年11月05日',
     amount: '19.86',

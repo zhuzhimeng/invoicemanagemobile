@@ -70,3 +70,31 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.border-gray-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity));
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.justify-between {
+  justify-content: space-between;
+  display: flex
+}
+
+.items-center {
+  align-items: center;
+}
