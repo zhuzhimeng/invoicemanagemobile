@@ -48,6 +48,7 @@ const handleDownload = () => {
   gap: 8px;
   background: #fff;
   cursor: pointer;
+  margin-top: 5px;
 }
 
 .invoice-type {

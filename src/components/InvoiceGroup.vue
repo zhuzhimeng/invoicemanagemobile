@@ -1,6 +1,6 @@
 <template>
-  <div class="time-group">
-    <div class="month-header">{{ group.month }} ({{ group.count }}张)</div>
+  <!-- <div class="time-group"> -->
+    <!-- <div class="month-header">{{ group.month }} ({{ group.count }}张)</div> -->
     <div class="invoice-items">
       <invoice-item
         v-for="invoice in group.invoices"
@@ -8,7 +8,7 @@
         :invoice="invoice"
       />
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script setup>
@@ -35,6 +35,7 @@ defineProps({
 }
 
 .invoice-items {
-  background: #fff;
+  /* background: #fff; */
+  margin-top: 5px;
 }
 </style>
