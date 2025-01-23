@@ -43,7 +43,7 @@ export async function fetchInvoiceList() {
   try {
     const response = await axios.get('/api/api/invoiceMobile/getHeader')
     invoiceData.value = response.data;
-    console.log("invoiceData="+invoiceData);
+    // console.log("invoiceData="+JSON.stringify(invoiceData.value));
   } catch (error) {
     console.error('获取发票列表数据失败', error)
   }
@@ -52,7 +52,8 @@ export async function fetchInvoiceList() {
 // 根据 ID 获取发票详情数据
 export async function getInvoiceById(id) {
   try {
-    const response = await axios.get(`/api/api/invoiceMobile01/getDetail`)
+    const response = await axios.get(`/api/api/invoiceMobile01/getDetail?id=`+id)
+    // console.log("response="+JSON.stringify(response.data));
     return response.data
   } catch (error) {
     console.error('获取发票详情数据失败', error)

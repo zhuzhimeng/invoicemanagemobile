@@ -102,7 +102,7 @@ const noMoreData = ref(true)
 import { ref, onMounted } from 'vue'
 import InvoiceFilters from './InvoiceFilters.vue'
 import InvoiceGroup from './InvoiceGroup.vue'
-import { fetchInvoiceList } from '../stores/invoice.js'
+import { fetchInvoiceList,invoiceData } from '../stores/invoice.js'
 
 const timeFilter = ref(0)
 const statusFilter = ref(0)
@@ -112,11 +112,14 @@ const invoiceGroups = ref([])
 const noMoreData = ref(true)
 
 onMounted(async () => {
-  await fetchInvoiceList()
+  await fetchInvoiceList();
   // 这里需要根据实际情况对 invoiceData 进行分组处理，生成 invoiceGroups 的数据
   // 示例代码：
   const groupedData = {}
+  // console.log("invoiceData:"+JSON.stringify(invoiceData.value));
+  var i=0;
   invoiceData.value.forEach(invoice => {
+ 
     // const month = invoice.date.split('-')[0] + '年' + invoice.date.split('-')[1] + '月'
     // if (!groupedData[month]) {
     //   groupedData[month] = {
@@ -126,11 +129,17 @@ onMounted(async () => {
     //   }
     // }
     // groupedData[month].count++
-    groupedData[0].invoices.push(invoice)
+    groupedData[i] = {
+        invoices: []
+      }
+    groupedData[i].invoices.push(invoice)
+    i++;
+    // console.log("i:"+i);
   })
+  console.log("i:"+i);
   // invoiceGroups.value = invoiceData.value
   invoiceGroups.value = Object.values(groupedData);
-  console.log("invoiceGroups:"+invoiceGroups);
+  // console.log("invoiceGroups:"+JSON.stringify(Object.values(groupedData)));
 })
 </script>
 

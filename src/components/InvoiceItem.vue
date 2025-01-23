@@ -1,8 +1,9 @@
 <template>
   <div class="invoice-item" @click="goToDetail">
     <div class="invoice-type">
-      <span class="type-icon">{{ invoice.xflx }}</span>
-      <span class="type-text">{{ invoice.fpdm }}</span>
+      <!-- <span class="type-icon">{{ invoice.fplxdm }}</span> -->
+      <span class="type-icon">电</span>
+      <span class="type-text">{{ invoice.fphm }}</span>
     </div>
     <div class="invoice-details">
       <div class="seller">销售方：{{ invoice.xhfmc }}</div>

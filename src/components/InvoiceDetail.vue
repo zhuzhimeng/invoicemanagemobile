@@ -19,7 +19,7 @@
       <div class="info-section">
         
           <ExpandableSection
-            :title="`开票方: ${invoice?.seller || '未知类型'}`" 
+            :title="`开票方: ${invoice?.hwmc || '未知类型'}`" 
             :is-expanded="expandedSection === 'issuer'"
             @toggle="toggleSection('issuer')"
           >
@@ -158,9 +158,11 @@ computed: {
 
 }
 
-onMounted(() => {
-  const id = parseInt(route.params.id)
-  invoice.value = getInvoiceById(id)
+onMounted(async () => {
+  const id = parseInt(route.params.id);
+ invoice.value = await getInvoiceById(id);
+ invoice.value = invoice.value[0];
+console.log("invoice.value ="+JSON.stringify(invoice.value));
 })
 
 const goBack = () => {
